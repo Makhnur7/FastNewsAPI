@@ -5,3 +5,7 @@ __pycache__/
 env.py/
 
 alembic/versions/*
+!alembic/versions/.gitkeep
+
+media/*
+!media/.gitkeep

@@ -13,6 +13,10 @@ DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_POST", "5432")
+MEDIA_ROOT = os.path.join(os.getcwd(), "media")
+
+JWT_SECRET = os.getenv("JWT_SECRET", "SECRET")
+USER_MANAGER_SECRET = os.getenv("USER_MANAGER_SECRET", "SECRET")
 
 
 __all__=[
