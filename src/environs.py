@@ -24,5 +24,7 @@ __all__=[
     "DB_USER",
     "DB_PASSWORD",
     "DB_HOST",
-    "DB_PORT"
+    "DB_PORT",
+    "JWT_SECRET",
+    "USER_MANAGER_SECRET",
 ]
