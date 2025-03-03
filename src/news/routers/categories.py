@@ -14,6 +14,7 @@ from ..services import CategoryService
 
 from src.database import get_db
 
+
 router = APIRouter(
     prefix="/categories",
     tags=["Categories"]
@@ -67,3 +68,4 @@ async def partial_update_category(category_id: int, category: CategoryCreateSche
     Update category by id
     """
     return await CategoryService.update_category(db, category_id, category.dict(), partial=True)
+ 

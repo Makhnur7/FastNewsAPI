@@ -9,6 +9,7 @@ from sqlalchemy import ForeignKey, String, ARRAY
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.database import Base
+from src.users.models import User
 
 
 
@@ -43,4 +44,20 @@ class News(Base):
     )
 
     category: Mapped[Category | None] = relationship("Category", back_populates="news")
+
+class Comments(Base):
+    """
+    Comments model
+    """
+    __tablename__ = "comments"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    text: Mapped[str] = mapped_column(String(length=255), nullable=False)
+    created: Mapped[datetime] = mapped_column(default=datetime.utcnow())
+    updated: Mapped[datetime] = mapped_column(default=datetime.utcnow, onupdate=datetime.utcnow)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    news_id: Mapped[int] = mapped_column(ForeignKey("news.id", ondelete="CASCADE"))
+
+    user: Mapped[User] = relationship("User", back_populates="comments")
+    news: Mapped[News] = relationship("News", back_populates="news")
 

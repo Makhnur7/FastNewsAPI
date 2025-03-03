@@ -108,3 +108,4 @@ async def delete_news_object(news_id: int, db: AsyncSession = Depends(get_db)) -
     Deletes a news object by id
     """
     return await NewsService.delete_news(db=db, news_id=news_id)
+
